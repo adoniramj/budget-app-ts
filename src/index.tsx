@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './redux/storeConfiguration'
 
+import AppRouter from './routers/AppRouter' 
+
 import { addExpense, removeExpense } from './redux/actions/expensesAction'
 import { setTextFilter, sortByAmount, sortByDate } from './redux/actions/filterAction'
 import './index.css';
-import App from './App';
+
 
 
 store.subscribe(() => {
@@ -25,7 +27,7 @@ store.dispatch(removeExpense(item1.expense))
 //END OF TEST DATA
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppRouter />
   </Provider>,
   document.getElementById('root')
 );
