@@ -1,12 +1,11 @@
-const defaultState: {
-  id: string,
-  description: string,
-  note: string,
-  amount: number,
-  createdAt: number
-}[] = []
 
-const expensesReducer = (state = defaultState, action: any) => {
+import { Expense, ExpenseActionTypes } from '../types/types'
+
+const expenseReducerDefaultState: Expense[] = []
+
+//Reducer function have to be pure functions
+
+const expensesReducer = (state = expenseReducerDefaultState, action: ExpenseActionTypes): Expense[] => {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return [...state, action.expense]

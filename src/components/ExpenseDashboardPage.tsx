@@ -3,7 +3,7 @@ import React from 'react'
 const ExpenseDasboardPage = () => {
   return (
     <div>
-      This is the header component
+      <h1>Dashboard page</h1>
     </div>
   )
 }

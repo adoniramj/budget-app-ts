@@ -7,4 +7,6 @@ const reducers = combineReducers({
   filters: filtersReducer
 })
 
+export type AppState = ReturnType<typeof reducers>
+
 export default createStore(reducers)

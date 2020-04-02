@@ -1,27 +1,22 @@
 import { uuid } from 'uuidv4'
 
-const addExpense = ({
-  description = '',
-  note = '',
-  amount = 0,
-  createdAt = 0
-  } = {}) => ({
-    type: 'ADD_EXPENSE',
-    expense : {
-      id: uuid(),
-      description,
-      note,
-      amount,
-      createdAt
-    }
-  }
-)
+import { Expense, AddExpenseAction, RemoveExpenseAction, EditExpenseAction} from '../types/types'
 
-const removeExpense = ({id}:any) => {
-  return {
+//The return value of each function is the action argument in expensesReducer function
+
+export const addExpense = (expense: Expense): AddExpenseAction => ({
+  type: 'ADD_EXPENSE',
+  expense
+})
+
+export const removeExpense = (id: string): RemoveExpenseAction => ({
     type: 'REMOVE_EXPENSE',
     id
-  }
-}
+})
 
-export { addExpense, removeExpense }
+export const editExpense = (expense: Expense):EditExpenseAction => ({
+    type: 'EDIT_EXPENSE',
+    expense
+  })
+
+
