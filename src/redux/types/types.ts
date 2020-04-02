@@ -1,9 +1,21 @@
 export interface Expense {
-  id: string;
+  id?: string;
   description: string;
   note: string;
   amount: number;
   createdAt: number;
+}
+
+export interface Filters {
+  text: string;
+  sortBy: 'date' | 'amount';
+  startDate: undefined;
+  endDate: undefined;
+}
+
+export interface State {
+  expenses: Expense[];
+  filters: Filters;
 }
 
 const ADD_EXPENSE = "ADD_EXPENSE";
@@ -18,12 +30,12 @@ export interface AddExpenseAction {
 
 export interface RemoveExpenseAction {
   type: typeof REMOVE_EXPENSE;
-  id: string
+  id: string;
 }
 
 export interface EditExpenseAction {
   type: typeof EDIT_EXPENSE;
-  expense: Expense; 
+  expense: Expense;
 }
 
 export type ExpenseActionTypes =

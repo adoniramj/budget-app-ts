@@ -11,8 +11,4 @@ const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 })
 
-
-
-
-
 export { setTextFilter, sortByAmount, sortByDate }
