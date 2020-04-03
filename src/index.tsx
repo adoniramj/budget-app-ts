@@ -15,7 +15,7 @@ import "./index.css";
 
 store.subscribe(() => {
   const state = store.getState();
-  console.log(state);
+  //console.log(state);
 });
 //BEGINNING OF TEST DATA
 const item1 = store.dispatch(

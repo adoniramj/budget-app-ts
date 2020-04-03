@@ -1,6 +1,6 @@
 import { uuid } from 'uuidv4'
 
-import { Expense, AddExpenseAction, RemoveExpenseAction, EditExpenseAction} from '../types/types'
+import { Expense, AddExpenseAction, RemoveExpenseAction, EditExpenseAction} from '../../types/types'
 
 //The return value of each function is the action argument in expensesReducer function
 

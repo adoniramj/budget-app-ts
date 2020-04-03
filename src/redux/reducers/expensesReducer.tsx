@@ -1,5 +1,5 @@
 
-import { Expense, ExpenseActionTypes } from '../types/types'
+import { Expense, ExpenseActionTypes } from '../../types/types'
 
 const expenseReducerDefaultState: Expense[] = []
 
