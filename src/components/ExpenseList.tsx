@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+
+//DATA TYPES
 import { State, Expense }  from "../types/types"
+
+//COMPONENTS
 import ExpenseListItem from "./ExpenseListItem"
 import ExpenseListFilters from './ExpenseListFilters'
+import filteringExpenses from "../redux/filtering/filteringExpenses";
 
 const ExpenseList = (props: any) => {
   return (
@@ -22,7 +27,7 @@ const ExpenseList = (props: any) => {
 
 const mapStateToProps = (state: State) => {
   return {
-    expenses: state.expenses
+    expenses: filteringExpenses(state.expenses, state.filters)
   };
 };
 
