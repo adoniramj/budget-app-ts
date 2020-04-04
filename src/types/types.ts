@@ -8,7 +8,7 @@ export interface Expense {
 
 export interface Filters {
   text: string;
-  sortBy: 'date' | 'amount';
+  sortBy: "date" | "amount" | "date_asc" | "amount_asc";
   startDate: undefined;
   endDate: undefined;
 }

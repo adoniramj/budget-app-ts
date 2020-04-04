@@ -22,6 +22,11 @@ const filtersReducer = (state = filterReducerDefaultState, action: any) => {
         ...state,
         sortBy: 'amount'
       }
+    case 'SORT_BY':
+      return {
+        ...state,
+        sortBy: action.sortBy
+      }
     default:
       return state
   }
