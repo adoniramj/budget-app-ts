@@ -5,20 +5,16 @@ import store from "./redux/storeConfiguration";
 
 import AppRouter from "./routers/AppRouter";
 
-import { addExpense, removeExpense } from "./redux/actions/expensesAction";
-import {
-  setTextFilter,
-  sortByAmount,
-  sortByDate
-} from "./redux/actions/filterAction";
+import { addExpense } from "./redux/actions/expensesAction";
+
 import "./index.css";
 
 store.subscribe(() => {
-  const state = store.getState();
+  //const state = store.getState();
   //console.log(state);
 });
 //BEGINNING OF TEST DATA
-const item1 = store.dispatch(
+store.dispatch(
   addExpense({
     description: "Gas bill",
     note: "This payment is overdue",
@@ -26,7 +22,7 @@ const item1 = store.dispatch(
     createdAt: 1530000000000
   })
 );
-const item2 = store.dispatch(
+store.dispatch(
   addExpense({
     description: "Rent",
     note: "This payment is next month",

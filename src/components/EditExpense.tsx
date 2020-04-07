@@ -4,8 +4,6 @@ import  { State } from '../types/types'
 import { NavLink } from 'react-router-dom'
 
 const EditExpense = (props: any) => {
-  console.log(props)
-  //console.log(props.match.params.id)
   return(
   <div>
     This is the edit page

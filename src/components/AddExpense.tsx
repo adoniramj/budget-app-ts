@@ -1,16 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addExpense } from '../redux/actions/expensesAction'
 
 import ExpenseForm from './ExpenseForm'
-//import Expenseform from './Expenseform'
 
-const AddExpense = () => {
-  return (
+const AddExpense = (props: any):JSX.Element => (
     <div>
       <p>This is the AddExpenseComponent. </p>
-      <ExpenseForm />
+      <ExpenseForm onSubmit={(expense: any) => {
+        props.dispatch(addExpense(expense))
+        props.history.push('/')
+      }} />
     </div>
   )
-}
-
-export default AddExpense
+  
+// requires connect() to access dispatch
+export default connect()(AddExpense)

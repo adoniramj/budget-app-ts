@@ -2,11 +2,11 @@ import { Expense, Filters } from "../../types/types";
 
 const filteringExpenses = (expenses: Expense[], filters: Filters): Expense[] => {
   return expenses
-  .filter((element) => {
+  .filter((element):boolean => {
     const textMatch = element.description.toLowerCase().includes(filters.text.toLowerCase());
       return textMatch;
   })
-  .sort((a:Expense, b:Expense):number => {
+  .sort((a:Expense, b:Expense): number => {
     switch(filters.sortBy){
       case 'date':
         return a.createdAt < b.createdAt ? 1 : -1;
