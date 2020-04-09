@@ -7,6 +7,7 @@ import 'react-dates/lib/css/_datepicker.css'
 
 interface UserProps {
   onSubmit: Function
+  expense?: Object  //only used when editing
 }
 interface State {
   calendarFocused: boolean
@@ -22,10 +23,10 @@ class ExpenseForm extends React.Component<UserProps, State>{
     super(props)
     this.state = {
       calendarFocused: false,
-      createdAt: moment(),
-      description: '',
-      amount: '',
-      note: '',
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      description: props.expense ? props.expense.description : '',
+      amount: props.expense ? (props.expense.amount / 100 ).toString() : '',
+      note: props.expense ? props.expense.note : '',
       error: ''
     }
   }
@@ -74,7 +75,6 @@ class ExpenseForm extends React.Component<UserProps, State>{
         note: this.state.note
       })
     }
-   
   }
 
   render() {

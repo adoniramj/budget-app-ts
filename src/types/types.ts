@@ -23,6 +23,8 @@ const EDIT_EXPENSE = "EDIT_EXPENSE";
 const REMOVE_EXPENSE = "REMOVE_EXPENSE";
 // const SET_EXPENSES = "SET_EXPENSES";
 
+
+//Interfaces used in expenseActions.ts. Indicates what each action function returns to the reducer
 export interface AddExpenseAction {
   type: typeof ADD_EXPENSE;
   expense: Expense;
