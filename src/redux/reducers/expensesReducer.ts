@@ -16,6 +16,14 @@ const expensesReducer = (state = expenseReducerDefaultState, action: ExpenseActi
       }
     case 'REMOVE_EXPENSE':
       return state.filter(({id}) => id !== action.id) //destructuring id from the action object
+    case 'EDIT_EXPENSE':
+      return state.map(expense => {
+        if(expense.id === action.id) {
+          return {...expense, ...action.updates}
+        } else {
+          return expense
+        }
+      })
     default:
       return state
   }

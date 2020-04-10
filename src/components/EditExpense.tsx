@@ -5,35 +5,28 @@ import { NavLink } from 'react-router-dom'
 import ExpenseForm from './ExpenseForm'
 import { editExpense } from '../redux/actions/expensesAction'
 
-
-// type PropsFromRedux = ConnectedProps<typeof connector>
-
-// type Props = PropsFromRedux & {
-//   expense: Object
-// }
-// interface UserProps {
-  //   expense: Object,
-  //   dispatch: Function
-  // }
-  
-  const EditExpense = (props: any) => {
-    console.log(props)
-    return(
-      <div>
-      This is the edit page
-      <NavLink to='/'>Home</NavLink>
-      <ExpenseForm
-        expense={props.expense}
-        onSubmit={(expense: Expense) => {
-          props.dispatch(editExpense(expense))
-        }} />
-    </div>
+//The argument to EditExpense comes from the connect method.
+//connect combines all the props and sends them as an argument to EditExpense.
+const EditExpense = (props: any) => {
+  return(
+    <div>
+    This is the edit page
+    <NavLink to='/'>Home</NavLink>
+    {/* An interface is required in ExpenseForm to allow the props that are sent from this component */}
+    <ExpenseForm 
+      expense={props.expense}
+      onSubmit={(expense: Expense) => {
+        props.dispatch(editExpense(props.expense.id, expense))
+        props.history.push('/')
+      }} />
+  </div>
 )}
 
-const mapStateToProps = (state: State, props: any) => {
-  //Route allows access of the match property to the EditExpense component
+const mapStateToProps = (state: State, ownProps: any) => {
+  //Route allows access of the match property to the EditExpense component.
+  //ownProps is required to access the match property.
   return ({
-    expense: state.expenses.find(expense => props.match.params.id === expense.id)
+    expense: state.expenses.find(expense => ownProps.match.params.id === expense.id)
   })
 }
 

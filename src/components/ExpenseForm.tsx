@@ -9,7 +9,7 @@ interface UserProps {
   onSubmit: Function
   expense?: Object  //only used when editing
 }
-interface State {
+interface State { //this interfaces is for the class below. It is a local state. Does not form part of Redux.
   calendarFocused: boolean
   createdAt: any
   description: string
@@ -78,8 +78,6 @@ class ExpenseForm extends React.Component<UserProps, State>{
   }
 
   render() {
-    console.log('class component')
-    console.log(this.props)
     return (
       <div>
         <form onSubmit={this.onSubmit}>

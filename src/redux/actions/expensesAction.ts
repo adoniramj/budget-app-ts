@@ -21,9 +21,10 @@ export const removeExpense = (id: string): ExpenseActionTypes => ({
     id
 })
 
-export const editExpense = (expense: Expense): ExpenseActionTypes => ({
+export const editExpense = (id: string, updates: Expense): ExpenseActionTypes => ({
     type: 'EDIT_EXPENSE',
-    expense
+    id,
+    updates
   })
 
 

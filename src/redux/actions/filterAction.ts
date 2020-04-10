@@ -1,9 +1,11 @@
-const setTextFilter = (text:string) => ({
+import { FilterActionTypes} from '../../types/types'
+
+const setTextFilter = (text:string): FilterActionTypes => ({
   type: 'SET_TEXT_FILTER',
   text
 })
 
-const sortByAmount = () => ({ //REMOVE
+const sortByAmount = (): FilterActionTypes => ({ //REMOVE
   type: 'SORT_BY_AMOUNT'
 })
 
