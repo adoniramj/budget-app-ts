@@ -1,3 +1,5 @@
+import moment from 'moment' 
+
 export interface Expense {
   id?: string;
   description: string;
@@ -9,8 +11,8 @@ export interface Expense {
 export interface Filters {
   text: string;
   sortBy: "date" | "amount" | "date_asc" | "amount_asc";
-  startDate: undefined;
-  endDate: undefined;
+  startDate: moment.Moment;
+  endDate: moment.Moment;
 }
 
 export interface State {

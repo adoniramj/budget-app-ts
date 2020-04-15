@@ -101,6 +101,8 @@ class ExpenseForm extends React.Component<UserProps, State>{
           focused={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
           id='singleDate' //this property is required in tsx but will work in js if excluded
+          numberOfMonths={1}
+          isOutsideRange={() => false}
         />
         <textarea
           placeholder="Notes(optional)"
